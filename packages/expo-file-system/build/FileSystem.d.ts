@@ -150,5 +150,6 @@ export declare class DownloadTask extends ExpoFileSystem.FileSystemDownloadTask 
     private _wireAbortSignal;
     private _wireProgress;
     private _cleanup;
+    private _emitFinalProgressEvent;
 }
 //# sourceMappingURL=FileSystem.d.ts.map
