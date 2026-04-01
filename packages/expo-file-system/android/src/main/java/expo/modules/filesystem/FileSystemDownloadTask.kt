@@ -2,6 +2,7 @@ package expo.modules.filesystem
 
 import android.net.Uri
 import androidx.core.net.toUri
+import com.facebook.react.modules.network.OkHttpClientProvider
 import expo.modules.filesystem.unifiedfile.JavaFile
 import expo.modules.filesystem.unifiedfile.SAFDocumentFile
 import expo.modules.filesystem.unifiedfile.UnifiedFileInterface
@@ -13,7 +14,6 @@ import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
 import okhttp3.Call
 import okhttp3.Callback
-import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
 import java.io.BufferedInputStream
@@ -22,7 +22,6 @@ import java.io.IOException
 import java.io.RandomAccessFile
 import java.net.URI
 import java.net.URLConnection
-import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
@@ -39,11 +38,7 @@ class DownloadTaskOptions : Record {
  */
 class FileSystemDownloadTask : SharedObject() {
   companion object {
-    private val client = OkHttpClient.Builder()
-      .connectTimeout(60, TimeUnit.SECONDS)
-      .readTimeout(60, TimeUnit.SECONDS)
-      .writeTimeout(60, TimeUnit.SECONDS)
-      .build()
+    private val client = OkHttpClientProvider.getOkHttpClient()
   }
 
   private var call: Call? = null
