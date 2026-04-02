@@ -11,6 +11,7 @@
 ### 💡 Others
 
 - Add `react-native-web` to autolinking module resolution modules ([#44160](https://github.com/expo/expo/pull/44160) by [@kitten](https://github.com/kitten))
+- Bump to `@expo/metro@55.0.0` and `metro@0.83.5` ([#44320](https://github.com/expo/expo/pull/44320) by [@kitten](https://github.com/kitten))
 
 ## 55.0.19 — 2026-03-27
 
